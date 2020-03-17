@@ -39,11 +39,15 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
   hidden: boolean
 
 
+
   ngOnInit() {
     // BUG: This function is called 6 times when the editor is openend
     console.log('ngOnInit')
   }
 
+  showGroup() {
+    return  !this.hidden && this.values && ((this.values[0].value) !== '');
+  }
   onClick(val: string) {
     console.log(val)
     this.value = val;
