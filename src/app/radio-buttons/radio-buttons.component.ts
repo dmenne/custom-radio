@@ -46,8 +46,8 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
 
   onClick(val: string) {
     console.log(val)
-    this.value = val; // Should be updated first
-    this.valueChange.emit(val); // Should be called after this.value update
+    this.value = val;
+    this.valueChange.emit(val);
   }
 
 }
