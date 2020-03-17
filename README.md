@@ -8,7 +8,7 @@ I gave up and started from scratch, with only the latest versions available: `"a
 
 The example generates a radio button group with [real bootstrap buttons](https://ng-bootstrap.github.io/#/components/buttons/examples#radioreactive)
 
-![Bootstrap radio buttons](https://ibb.co/sgFccdc)
+![Bootstrap radio buttons](https://i.ibb.co/tHbnnTn/cust.png)
 
 I created these because the usual radio buttons are much to small and difficult to hit on tablets for patients' self-assessment.
 
