@@ -2,7 +2,8 @@
 import { NgModule, Injector } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgxPrettyCheckboxModule } from 'ngx-pretty-checkbox';
 
 // Components
 import { AppComponent } from './app.component'
@@ -21,7 +22,8 @@ import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.for
     BrowserModule,
     CommonModule,
     FormioModule,
-    NgbModule
+    NgbModule,
+    NgxPrettyCheckboxModule
   ],
   providers: [
   ],
