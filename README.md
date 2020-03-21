@@ -24,13 +24,13 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
 
 * Write the stringified version of the component to the log using `console.log(JSON.stringify(Components.components.radio.editForm()))`
 
-* Copy the string from the debugger window into a new file `assets/radio-buttons.edit.json`.  Tell me if there is an easier method to do the JSON export, but since I have to do it only once, it was good enough for unpaid work.
+* Copy the string from the debugger window into a new file `assets/radio-buttons.edit.json`.  Tell me if there is an easier method to do the JSON export, but since I have to do it only once, it was good enough for me.
 
 * Use Notepad++ with the JS-plugin to format the JSON code for humans.
 
 * Make edits in the file. I removed the mostly-useless CSS class text field, and added a select box to select one of the [Bootstrap button styles](https://getbootstrap.com/docs/4.0/components/buttons/). The key of the field is `buttonStyle`.
 
-```
+```json
   {
   	"components": [{
   			"type": "tabs",
@@ -56,16 +56,17 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
 ```
 * Use `import radioButtonEditFormJson from `../../assets/radio-buttons.edit.json'` in `radio-buttons.formio.ts` to get the parsed JSON
 
-  ```function radioEditForm() {
+  ```typescript
+  
   function radioEditForm() {
-    // You can do some additional dynamic changes by modifying JSON
+    // You can do some additional dynamic changes by modifying JSON here
     return radioButtonEditFormJson
   }
-  ```
+```
 
 * Add function name without () as editForm in COMPONENT_OPTIONS.
 
-```
+``` typescript
   const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
     type: 'radiobuttons', 
     selector: 'radio-buttons', 
@@ -79,19 +80,18 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
 * Add the field name `buttonStyle` and other fields you need to `fieldOptions`
 * When you get an error message `Consider using '--resolveJsonModule' to import module with '.json' extension`, add the following to `compilerOptions` in `tsconfig.json`:
 
-```
+```json
 "resolveJsonModule": true,
 "esModuleInterop": true,
 ```
-
 * Now you can use `buttonStyle`, by importing it into the component
-```
+```typescript
   @Input()
   buttonStyle: string
 ```
 * and in .html
 
-```
+```html
 class="btn-outline-{{buttonStyle}}
 ```
 
