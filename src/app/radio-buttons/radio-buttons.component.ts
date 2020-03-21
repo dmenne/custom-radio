@@ -1,4 +1,4 @@
-import { Component,  EventEmitter, Input, Output, OnInit} from '@angular/core'
+import { Component,  EventEmitter, Input, Output, OnInit, HostBinding} from '@angular/core'
 import { FormGroup } from '@angular/forms';
 import { FormioCustomComponent } from 'angular-formio'
 
@@ -11,6 +11,7 @@ import { FormioCustomComponent } from 'angular-formio'
 
 export class RadioButtonsComponent  implements FormioCustomComponent<string>, OnInit {
   public radioGroupForm: FormGroup;
+
   @Input()
   value: string
 
@@ -38,7 +39,8 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
   @Input()
   hidden: boolean
 
-
+  @Input()
+  buttonStyle: string
 
   ngOnInit() {
     // BUG: This function is called 6 times when the editor is openend
