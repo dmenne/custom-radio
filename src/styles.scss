@@ -1,5 +1,12 @@
+$primary: #76b387;
+
 @import "~bootswatch/dist/cosmo/_variables.scss";
 @import "~bootstrap/scss/bootstrap.scss";
 
 $fa-font-path: '../node_modules/font-awesome/fonts';
 @import '~font-awesome/scss/font-awesome';
+
+.alert-info {
+  background-color: #eeeeee;
+  border-color: #aaaaaa;
+}
