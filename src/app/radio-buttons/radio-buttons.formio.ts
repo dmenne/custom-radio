@@ -24,7 +24,7 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   title: 'Radio Buttons', // Title of the component
   group: 'basic', // Build Group
   icon: 'fa fa-star', // Icon
-  fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle'],
+  fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle', 'inline'],
   editForm: radioEditForm, // Use editForm from Radio buttons
   //  template: 'input', // Optional: define a template for the element. Default: input
 //  changeEvent: 'valueChange', // Optional: define the changeEvent when the formio updates the value in the state. Default: 'valueChange',

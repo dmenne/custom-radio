@@ -42,6 +42,9 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
   @Input()
   buttonStyle: string
 
+  @Input()
+  inline: boolean ;
+
   ngOnInit() {
     // BUG: This function is called 6 times when the editor is openend
     console.log('ngOnInit')

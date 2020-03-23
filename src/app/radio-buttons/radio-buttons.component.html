@@ -1,7 +1,11 @@
-<div *ngIf="showGroup()" class="btn-group btn-group-toggle d-flex flex-wrap" ngbRadioGroup name="radioBasic">
-  <label *ngFor = "let val of values"
-    ngbButtonLabel class="btn-outline-{{buttonStyle}} btn-group-rounded mr-1">
+<div *ngIf="showGroup()" class="btn-group btn-group-toggle d-flex"
+   [ngClass]="{'flex-column':!inline}" ngbRadioGroup name="radioBasic">
+    <label *ngFor = "let val of values"
+    ngbButtonLabel class="btn-outline-{{buttonStyle}}  mr-1  mb-2"
+    [ngClass]= "{'btn-group-rounded': inline}"
+    >
     <input ngbButton type="radio" [disabled]="!!disabled" [hidden]="!!hidden"
         (click)="onClick(val.value)" [value]="val.value" > {{val.label}}
   </label>
+
 </div>
