@@ -26,7 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@ng-bootstrap/ng-bootstrap": "^6.0.0",
     "@webcomponents/custom-elements": "^1.4.0",
-    "angular-formio": "~4.6.9",
+    "angular-formio": "~4.6.17",
     "bootstrap": "^4.4.1",
     "bootswatch": "^4.4.1",
     "font-awesome": "^4.7.0",
