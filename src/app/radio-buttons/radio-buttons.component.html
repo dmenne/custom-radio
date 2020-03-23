@@ -1,4 +1,4 @@
-<div *ngIf="showGroup()" class="btn-group btn-group-toggle " ngbRadioGroup name="radioBasic">
+<div *ngIf="showGroup()" class="btn-group btn-group-toggle d-flex flex-wrap" ngbRadioGroup name="radioBasic">
   <label *ngFor = "let val of values"
     ngbButtonLabel class="btn-outline-{{buttonStyle}} btn-group-rounded mr-1">
     <input ngbButton type="radio" [disabled]="!!disabled" [hidden]="!!hidden"
