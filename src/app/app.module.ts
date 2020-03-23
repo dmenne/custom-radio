@@ -10,12 +10,15 @@ import { AppComponent } from './app.component'
 // Formio
 import { FormioModule} from 'angular-formio'
 import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component'
-import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.formio'
+import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.formio';
+import { CheckboxButtonsComponent } from './checkbox-buttons/checkbox-buttons.component'
+import { registerCheckboxButtonsComponent } from './checkbox-buttons/checkbox-buttons.formio';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RadioButtonsComponent
+    RadioButtonsComponent,
+    CheckboxButtonsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,12 +29,14 @@ import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.for
   providers: [
   ],
   entryComponents: [
-    RadioButtonsComponent
+    RadioButtonsComponent,
+    CheckboxButtonsComponent
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(injector: Injector) {
     registerRadioButtonsComponent(injector)
+    registerCheckboxButtonsComponent(injector)
   }
 }

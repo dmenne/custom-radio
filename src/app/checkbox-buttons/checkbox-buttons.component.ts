@@ -1,16 +1,14 @@
 import { Component,  EventEmitter, Input, Output, OnInit, HostBinding} from '@angular/core'
-import { FormGroup } from '@angular/forms';
 import { FormioCustomComponent } from 'angular-formio'
 
 @Component({
   selector: 'app-radio-buttons',
-  templateUrl: './radio-buttons.component.html',
-  styleUrls: ['./radio-buttons.component.scss']
+  templateUrl: './checkbox-buttons.component.html',
+  styleUrls: ['./checkbox-buttons.component.scss']
 
 })
 
-export class RadioButtonsComponent  implements FormioCustomComponent<string>, OnInit {
-//  public radioGroupForm: FormGroup;
+export class CheckboxButtonsComponent  implements FormioCustomComponent<string>, OnInit {
 
   @Input()
   value: string
