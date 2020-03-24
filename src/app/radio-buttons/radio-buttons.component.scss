@@ -7,3 +7,7 @@
 .flex-container {
   display: flex;
 }
+
+.btn-outline-primary:hover  {
+  box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.95);
+}
