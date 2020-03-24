@@ -21,10 +21,10 @@ import { registerCheckboxButtonsComponent } from './checkbox-buttons/checkbox-bu
     CheckboxButtonsComponent
   ],
   imports: [
-    BrowserModule,
-    CommonModule,
     FormioModule,
     NgbModule,
+    BrowserModule,
+    CommonModule,
   ],
   providers: [
   ],

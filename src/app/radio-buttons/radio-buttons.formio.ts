@@ -22,7 +22,7 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   selector: 'radio-buttons', // custom selector. Angular Elements will create a custom html tag with this selector
   title: 'Radio Buttons', // Title of the component
   group: 'basic', // Build Group
-  icon: 'fa fa-star', // Icon
+  icon: 'check-circle', // Icon
   fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle', 'inline'],
   editForm: radioEditForm, // Use editForm from Radio buttons
   //  template: 'input', // Optional: define a template for the element. Default: input

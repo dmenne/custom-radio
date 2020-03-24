@@ -23,7 +23,7 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   selector: 'checkbox-buttons', // custom selector. Angular Elements will create a custom html tag with this selector
   title: 'Checkbox Buttons', // Title of the component
   group: 'basic', // Build Group
-  icon: 'fa fa-star', // Icon
+  icon: 'list-alt', // Icon
   fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle', 'inline'],
   editForm: checkboxEditForm, // Use editForm from checkbox buttons
   //  template: 'input', // Optional: define a template for the element. Default: input
