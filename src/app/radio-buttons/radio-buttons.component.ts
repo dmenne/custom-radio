@@ -45,6 +45,7 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
 
 
   ngOnInit() {
+    // console.log("onInit")
   }
 
   showGroup() {
@@ -52,7 +53,7 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
   }
 
   isActive(val: string) {
-    return this.values && (val === this.values[0].value)
+    return this.value && (val === this.value)
   }
 
 
@@ -62,7 +63,6 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
       this.buttonStyle + ' ' +
       (this.isActive(val) ? 'active' : null) +
       (this.inline ? ' btn-group-rounded' : null)
-//    console.log(btn)
     return btn
   }
 
