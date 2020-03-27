@@ -1,5 +1,4 @@
 import { Component,  EventEmitter, Input, Output, OnInit, HostBinding} from '@angular/core'
-import { FormGroup } from '@angular/forms';
 import { FormioCustomComponent } from 'angular-formio'
 
 @Component({
@@ -10,7 +9,6 @@ import { FormioCustomComponent } from 'angular-formio'
 })
 
 export class RadioButtonsComponent  implements FormioCustomComponent<string>, OnInit {
-//  public radioGroupForm: FormGroup;
 
   @Input()
   value: string
@@ -45,14 +43,28 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
   @Input()
   inline: boolean ;
 
+
   ngOnInit() {
-    // BUG: This function is called 6 times when the editor is openend
-    console.log('ngOnInit')
   }
 
+
   showGroup() {
-    return  !this.hidden && this.values && ((this.values[0].value) !== '');
+     return  !this.hidden && this.values && ((this.values[0].value) !== '');
   }
+
+  isActive(val: string) {
+    return this.values && (val === this.values[0].value)
+  }
+
+
+  buttonClass(val: string) {
+    const btn =  this.isActive ?  'btn-primary ' : 'btn-outline-primary ' + this.buttonStyle
+    const ret =  'btn ' + btn + ' mr-1  mb-2' + (this.inline ? ' btn-group-rounded' : '')
+    console.log(ret)
+    return ret
+  }
+
+
   onClick(val: string) {
     console.log(val)
     this.value = val;

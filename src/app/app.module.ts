@@ -2,10 +2,10 @@
 import { NgModule, Injector } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 // Components
 import { AppComponent } from './app.component'
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 // Formio
 import { FormioModule} from 'angular-formio'
@@ -13,6 +13,7 @@ import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component'
 import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.formio';
 import { CheckboxButtonsComponent } from './checkbox-buttons/checkbox-buttons.component'
 import { registerCheckboxButtonsComponent } from './checkbox-buttons/checkbox-buttons.formio';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { registerCheckboxButtonsComponent } from './checkbox-buttons/checkbox-bu
   ],
   imports: [
     FormioModule,
-    NgbModule,
     BrowserModule,
     CommonModule,
+    ButtonsModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [
   ],

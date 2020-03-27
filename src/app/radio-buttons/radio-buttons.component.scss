@@ -9,5 +9,17 @@
 }
 
 .btn-outline-primary:hover  {
-  box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.65);
+}
+
+.btn-outline-primary:active {
+  background-color: blue;
+  color:white;
+}
+
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:hover:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #ff0062;
+  border-color: #40055b;
 }
