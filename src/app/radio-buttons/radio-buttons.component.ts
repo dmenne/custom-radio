@@ -49,16 +49,17 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
 
 
   showGroup() {
-     return  !this.hidden && this.values && ((this.values[0].value) !== '');
+    return  !this.hidden && this.values && ((this.values[0].value) !== '');
   }
 
   isActive(val: string) {
-    return this.values && (val === this.values[0].value)
+    const ret = this.values && (val === this.values[0].value)
+    return ret;
   }
 
 
   buttonClass(val: string) {
-    const btn =  this.isActive ?  'btn-primary ' : 'btn-outline-primary ' + this.buttonStyle
+    const btn =  'btn-outline-'  + this.buttonStyle + ' ' + (this.isActive(val) ? 'active' : '')
     const ret =  'btn ' + btn + ' mr-1  mb-2' + (this.inline ? ' btn-group-rounded' : '')
     console.log(ret)
     return ret
@@ -66,9 +67,9 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
 
 
   onClick(val: string) {
-    console.log(val)
-    this.value = val;
-    this.valueChange.emit(val);
+//    console.log(val)
+//    this.value = val;
+    // this.valueChange.emit(val);
   }
 
 }

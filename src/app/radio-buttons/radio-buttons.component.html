@@ -1,9 +1,8 @@
-<div *ngIf="showGroup()" class="btn-group btn-group-toggle d-flex" data-toggle="buttons"
+<div *ngIf="showGroup()" class="btn-group btn-group-toggle d-flex"
 [ngClass]="{'flex-column':!inline}">
-  <label *ngFor = "let val of values" [ngClass]="buttonClass(val)"  [hidden]="!!hidden"
-   [attr.checked]="isActive(val) ? '' : null"
-  >
-    <input type="radio" [disabled]="!!disabled" [hidden]="!!hidden" [name]="val.value">
+  <label *ngFor = "let val of values" [ngClass]="buttonClass(val.value)"  [hidden]="!!hidden" >
+    <input type="radio" [disabled]="!!disabled" [hidden]="!!hidden" [name]="val.value"
+      [attr.checked]="isActive(val.value) ? '' : null">
     {{val.label}}
   </label>
 </div>
