@@ -1,4 +1,4 @@
-import { Component,  EventEmitter, Input, Output, OnInit, HostBinding} from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormioCustomComponent } from 'angular-formio'
 
 @Component({
@@ -47,29 +47,30 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
   ngOnInit() {
   }
 
-
   showGroup() {
     return  !this.hidden && this.values && ((this.values[0].value) !== '');
   }
 
   isActive(val: string) {
-    const ret = this.values && (val === this.values[0].value)
-    return ret;
+    return this.values && (val === this.values[0].value)
   }
 
 
   buttonClass(val: string) {
-    const btn =  'btn-outline-'  + this.buttonStyle + ' ' + (this.isActive(val) ? 'active' : '')
-    const ret =  'btn ' + btn + ' mr-1  mb-2' + (this.inline ? ' btn-group-rounded' : '')
-    console.log(ret)
-    return ret
+    const btn =
+      'btn mr-1  mb-2  btn-outline-'  +
+      this.buttonStyle + ' ' +
+      (this.isActive(val) ? 'active' : null) +
+      (this.inline ? ' btn-group-rounded' : null)
+//    console.log(btn)
+    return btn
   }
 
 
-  onClick(val: string) {
-//    console.log(val)
-//    this.value = val;
-    // this.valueChange.emit(val);
+  updateValue(payload: string) {
+    console.log(payload)
+    this.value = payload;
+    this.valueChange.emit(payload);
   }
 
 }

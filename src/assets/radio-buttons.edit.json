@@ -178,8 +178,9 @@
 							"tooltip": "Sets the tabindex attribute of this component to override the tab order of the form. See the <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex'>MDN documentation</a> on tabindex for more information."
 						}, {
 							"type": "checkbox",
-							"input": true,
-							"key": "inline",
+              "input": true,
+              "key": "inline",
+              "defaultValue": true,
 							"label": "Inline Layout",
 							"tooltip": "Displays the checkboxes/radios horizontally.",
 							"weight": 650
