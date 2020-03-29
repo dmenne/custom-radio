@@ -61,8 +61,8 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
     const btn =
       'btn mr-1  mb-2  btn-outline-'  +
       this.buttonStyle + ' ' +
-      (this.isActive(val) ? 'active' : null) +
-      (this.inline ? ' btn-group-rounded' : null)
+      (this.isActive(val) ? 'active' : '') +
+      (this.inline ? ' btn-group-rounded' : '')
     return btn
   }
 

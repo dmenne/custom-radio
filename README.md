@@ -1,14 +1,14 @@
-# Radio-buttons: A custom component for Formio
+# Custom components for Formio
 
-[Formio](https://github.com/formio/formio) and its [Angular sibling](https://github.com/formio/angular-formio) are great frameworks to create user-editable web forms. The standard components cover the usual suspects, but when you need something slightly different, you find out that creating [custom components](https://github.com/formio/angular-formio/wiki/Custom-Components-with-Angular-Elements) is only half-heartedly supported. On most question you get a "paid support is available on request" answer. Custom components are considered  a "community feature", with [Bálint](https://github.com/merobal) as main contributor (March 2020). He has updated the documentation and contributed a [star-rating](https://github.com/merobal/angular-formio-custom-demo)  custom component - thanks.
+[Formio](https://github.com/formio/formio) and its [Angular sibling](https://github.com/formio/angular-formio) are great frameworks to create user-editable web forms. The standard components cover the usual suspects, but when you need something slightly different, you find out that creating [custom components](https://github.com/formio/angular-formio/wiki/Custom-Components-with-Angular-Elements) is only half-heartedly supported. On most question you get a "paid support is available on request" answer. Custom components are considered  a "community feature", with [Bálint](https://github.com/merobal) as main contributor (March 2020). 
 
 I had mixed luck when trying to compile the rating component, and using the concept in my own project. It has cost me weeks of debugging - main problems being version conflicts and occasional infinite loops.
 
 I gave up and started from scratch, with only the latest versions available: `"angular-formio": "4.6.10"` and `Angular 9.0.7`. Within one day, everthing worked - well, at least for me, your mileage may vary and you assume that ongoing formio development will introduces new issues.
 
-The example generates a radio button group with [real bootstrap buttons](https://ng-bootstrap.github.io/#/components/buttons/examples#radioreactive)
+The example generates inline and multiline radio buttons, yes/no buttons as a special case and large checkbox-like buttons.
 
-![Bootstrap radio buttons](https://i.ibb.co/tHbnnTn/cust.png)
+<a href="https://ibb.co/s9jCDhT"><img src="https://i.ibb.co/v41hrbN/cust.png" alt="cust" border="0"></a>
 
 I need these because the usual radio buttons are much to small and difficult to hit on tablets for patients' self-assessment.
 
@@ -62,11 +62,12 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
     // You can do some additional dynamic changes by modifying JSON here
     return radioButtonEditFormJson
   }
+  ```
 ```
 
 * Add function name without () as editForm in COMPONENT_OPTIONS.
 
-``` typescript
+​``` typescript
   const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
     type: 'radiobuttons', 
     selector: 'radio-buttons', 
@@ -95,13 +96,9 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
 class="btn-outline-{{buttonStyle}}
 ```
 
-### Untested
-
-I have not tested save/restore yet, the focus was on editing and parameter passing.
-
 ### formio is still buggy...
 
-I am surprised that `onInit` of the component is called 6 times when I start the editor.  Occasionally, I get an infinite loop as reported, but this is mysteriously transient - I have not idea how to reproduce it consistently
+`onInit` of the component is called between 50 and several hundered of times when a key in any editor is pressed. 
 
 
 ```
