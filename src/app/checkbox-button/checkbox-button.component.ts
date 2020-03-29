@@ -43,26 +43,18 @@ export class CheckboxButtonComponent  implements FormioCustomComponent<boolean>,
   @Input()
   icon: string
 
-
   ngOnInit() {
-    // console.log("onInit")
-  //  this.value = false
-    this.hideLabel = true
+    console.log("onInit")
+    // Bug in Formio: called hundred of times  when editor is open
+    this.hideLabel = true  // Does not work; I want to set hideLabel to true by default
   }
 
-  faIcon(){
-    return 'fa-' + this.icon
-  }
   buttonClass() {
-    const btn = 'btn-' + (this.value ? '' : 'outline-' ) + this.buttonStyle
-    console.log(btn)
-    return btn
+    return 'btn btn-checkbox btn-' + (this.value ? '' : 'outline-' ) + this.buttonStyle
   }
-
 
   toggleValue() {
     this.value = !this.value;
-    console.log(this.value)
     this.valueChange.emit(this.value);
   }
 

@@ -152,7 +152,7 @@
 							"type": "textfield",
 							"input": true,
 							"key": "icon",
-							"label": "The icon to display in the field",
+							"label": "The font-awesome icon to display in the field, try 'car'",
 							"tooltip": "The font-awesome icon; see https://fontawesome.com/icons?d=gallery&m=free for choices",
 							"weight": 410
 						}, {
