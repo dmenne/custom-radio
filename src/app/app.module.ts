@@ -11,8 +11,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { FormioModule} from 'angular-formio'
 import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component'
 import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.formio';
-import { CheckboxButtonsComponent } from './checkbox-buttons/checkbox-buttons.component'
-import { registerCheckboxButtonsComponent } from './checkbox-buttons/checkbox-buttons.formio';
+import { CheckboxButtonComponent } from './checkbox-button/checkbox-button.component'
+import { registerCheckboxButtonComponent } from './checkbox-button/checkbox-button.formio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YesNoButtonsComponent } from './yes-no-buttons/yes-no-buttons.component';
 import { registerYesNoButtonsComponent } from './yes-no-buttons/yes-no-buttons.formio';
@@ -21,7 +21,7 @@ import { registerYesNoButtonsComponent } from './yes-no-buttons/yes-no-buttons.f
   declarations: [
     AppComponent,
     RadioButtonsComponent,
-    CheckboxButtonsComponent,
+    CheckboxButtonComponent,
     YesNoButtonsComponent
   ],
   imports: [
@@ -35,7 +35,7 @@ import { registerYesNoButtonsComponent } from './yes-no-buttons/yes-no-buttons.f
   ],
   entryComponents: [
     RadioButtonsComponent,
-    CheckboxButtonsComponent,
+    CheckboxButtonComponent,
     YesNoButtonsComponent
   ],
   bootstrap: [AppComponent]
@@ -44,7 +44,7 @@ export class AppModule {
   constructor(injector: Injector) {
     registerRadioButtonsComponent(injector)
     registerYesNoButtonsComponent(injector)
-    registerCheckboxButtonsComponent(injector)
+    registerCheckboxButtonComponent(injector)
 
   }
 }

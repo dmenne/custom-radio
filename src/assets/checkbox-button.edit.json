@@ -16,37 +16,6 @@
 								"required": true
 							}
 						}, {
-							"type": "select",
-							"input": true,
-							"key": "labelPosition",
-							"label": "Label Position",
-							"tooltip": "Position for the label for this field.",
-							"weight": 20,
-							"defaultValue": "top",
-							"dataSrc": "values",
-							"data": {
-								"values": [{
-										"label": "Top",
-										"value": "top"
-									}, {
-										"label": "Left (Left-aligned)",
-										"value": "left-left"
-									}, {
-										"label": "Left (Right-aligned)",
-										"value": "left-right"
-									}, {
-										"label": "Right (Left-aligned)",
-										"value": "right-left"
-									}, {
-										"label": "Right (Right-aligned)",
-										"value": "right-right"
-									}, {
-										"label": "Bottom",
-										"value": "bottom"
-									}
-								]
-							}
-						}, {
 							"type": "number",
 							"input": true,
 							"key": "labelWidth",
@@ -103,31 +72,6 @@
 								}
 							}
 						}, {
-							"type": "select",
-							"input": true,
-							"label": "Options Label Position",
-							"key": "optionsLabelPosition",
-							"tooltip": "Position for the label for options for this field.",
-							"dataSrc": "values",
-							"weight": 32,
-							"defaultValue": "right",
-							"data": {
-								"values": [{
-										"label": "Top",
-										"value": "top"
-									}, {
-										"label": "Left",
-										"value": "left"
-									}, {
-										"label": "Right",
-										"value": "right"
-									}, {
-										"label": "Bottom",
-										"value": "bottom"
-									}
-								]
-							}
-						}, {
 							"weight": 200,
 							"type": "textarea",
 							"input": true,
@@ -153,6 +97,92 @@
 							"wysiwyg": {
 								"minLines": 3
 							}
+            },{
+							"type": "select",
+							"input": true,
+							"key": "buttonStyle",
+							"label": "Bootstrap button color style",
+							"tooltip": "<a href='https://getbootstrap.com/docs/4.0/components/buttons/'>Button style</a>",
+							"weight": 400,
+							"defaultValue": "primary",
+							"dataSrc": "values",
+							"data": {
+								"values": [{
+										"label": "Primary",
+										"value": "primary"
+									}, {
+										"label": "Secondary",
+										"value": "secondary"
+									}, {
+										"label": "Success",
+										"value": "success"
+									}, {
+										"label": "Danger",
+										"value": "danger"
+									}, {
+										"label": "Warning",
+										"value": "warning"
+									}, {
+										"label": "Info",
+										"value": "info"
+									}, {
+										"label": "Light",
+										"value": "light"
+									}, {
+										"label": "Dark",
+										"value": "dark"
+									}, {
+										"label": "Link",
+										"value": "link"
+									}
+								]
+							}
+						},{
+							"type": "select",
+							"input": true,
+							"weight": 350,
+							"label": "Shortcut",
+							"key": "shortcut",
+							"tooltip": "Shortcut for this component.",
+							"dataSrc": "custom",
+							"valueProperty": "value",
+							"template": "{{ item.label }}",
+							"data": {}
+						}, {
+							"type": "textfield",
+							"input": true,
+							"key": "icon",
+							"label": "The icon to display in the field",
+							"tooltip": "The font-awesome icon; see https://fontawesome.com/icons?d=gallery&m=free for choices",
+							"weight": 410
+						}, {
+							"type": "textfield",
+							"input": true,
+							"key": "name",
+							"label": "Radio Key",
+							"tooltip": "The key used to trigger the radio button toggle.",
+							"weight": 420,
+							"conditional": {
+								"json": {
+									"===": [{
+											"var": "data.inputType"
+										}, "radio"]
+								}
+							}
+						}, {
+							"type": "textfield",
+							"input": true,
+							"label": "Radio Value",
+							"key": "value",
+							"tooltip": "The value used with this radio button.",
+							"weight": 430,
+							"conditional": {
+								"json": {
+									"===": [{
+											"var": "data.inputType"
+										}, "radio"]
+								}
+							}
 						}, {
 							"weight": 500,
 							"type": "textfield",
@@ -170,13 +200,6 @@
 							"placeholder": "0",
 							"tooltip": "Sets the tabindex attribute of this component to override the tab order of the form. See the <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex'>MDN documentation</a> on tabindex for more information."
 						}, {
-							"type": "checkbox",
-							"input": true,
-							"key": "inline",
-							"label": "Inline Layout",
-							"tooltip": "Displays the checkboxes/radios horizontally.",
-							"weight": 650
-						}, {
 							"weight": 1100,
 							"type": "checkbox",
 							"label": "Hidden",
@@ -186,9 +209,10 @@
 						}, {
 							"weight": 1200,
 							"type": "checkbox",
-							"label": "Hide Label",
+              "label": "Hide Label",
 							"tooltip": "Hide the label of this component. This allows you to show the label in the form builder, but not when it is rendered.",
 							"key": "hideLabel",
+              "defaultValue": true,
 							"input": true
 						}, {
 							"weight": 1350,
@@ -239,52 +263,6 @@
 							"placeholder": "Default Value",
 							"tooltip": "The will be the value for this field, before user interaction. Having a default value will override the placeholder text.",
 							"input": true
-						}, {
-							"type": "datagrid",
-							"input": true,
-							"label": "Values",
-							"key": "values",
-							"tooltip": "The radio button values that can be picked for this field. Values are text submitted with the form data. Labels are text that appears next to the radio buttons on the form.",
-							"weight": 10,
-							"reorder": true,
-							"defaultValue": [{
-									"label": "",
-									"value": ""
-								}
-							],
-							"components": [{
-									"label": "Label",
-									"key": "label",
-									"input": true,
-									"type": "textfield"
-								}, {
-									"label": "Value",
-									"key": "value",
-									"input": true,
-									"type": "textfield",
-									"allowCalculateOverride": true,
-									"calculateValue": {
-										"_camelCase": [{
-												"var": "row.label"
-											}
-										]
-									},
-									"validate": {
-										"required": true
-									}
-								}, {
-									"type": "select",
-									"input": true,
-									"weight": 180,
-									"label": "Shortcut",
-									"key": "shortcut",
-									"tooltip": "The shortcut key for this option.",
-									"dataSrc": "custom",
-									"valueProperty": "value",
-									"template": "{{ item.label }}",
-									"data": {}
-								}
-							]
 						}, {
 							"weight": 30,
 							"type": "radio",
@@ -507,34 +485,6 @@
 							"type": "textfield",
 							"tooltip": "Error message displayed if any error occurred.",
 							"input": true
-						}, {
-							"type": "number",
-							"input": true,
-							"key": "validate.minSelectedCount",
-							"label": "Minimum checked number",
-							"tooltip": "Minimum checkboxes required before form can be submitted.",
-							"weight": 250
-						}, {
-							"type": "number",
-							"input": true,
-							"key": "validate.maxSelectedCount",
-							"label": "Maximum checked number",
-							"tooltip": "Maximum checkboxes possible before form can be submitted.",
-							"weight": 250
-						}, {
-							"type": "textfield",
-							"input": true,
-							"key": "minSelectedCountMessage",
-							"label": "Minimum checked error message",
-							"tooltip": "Error message displayed if minimum number of items not checked.",
-							"weight": 250
-						}, {
-							"type": "textfield",
-							"input": true,
-							"key": "maxSelectedCountMessage",
-							"label": "Maximum checked error message",
-							"tooltip": "Error message displayed if maximum number of items checked.",
-							"weight": 250
 						}, {
 							"type": "panel",
 							"title": "Custom Validation",
@@ -1021,7 +971,7 @@
 												}, {
 													"weight": 20,
 													"input": true,
-													"label": "Schema Definition",
+													"label": "Schema Defenition",
 													"key": "schemaDefinition",
 													"editor": "ace",
 													"rows": 5,

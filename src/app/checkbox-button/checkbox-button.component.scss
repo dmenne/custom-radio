@@ -1,0 +1,30 @@
+.btn-group .btn-group-rounded:first-child {
+  border-radius : .5em 0 0 .5em
+}
+.btn-group .btn-group-rounded:last-child {
+  border-radius : 0 .5em .5em 0
+}
+.flex-container {
+  display: flex;
+}
+
+.btn-group:hover > .btn:not(.active)  {
+  box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.65);
+}
+
+// https://jsfiddle.net/b9zd2bsw/2/
+label.btn-checkbox{
+  border:1px solid;
+  margin:5px;
+  padding: 10px;
+  border-radius: 17px;
+}
+
+.btn-checkbox:hover   {
+  box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.45);
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -100vw;
+}

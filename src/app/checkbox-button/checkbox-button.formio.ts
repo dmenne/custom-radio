@@ -4,28 +4,28 @@ import {
   registerCustomFormioComponent,
   Components
 } from 'angular-formio'
-import { CheckboxButtonsComponent } from './checkbox-buttons.component'
-import checkboxButtonEditFormJson from '../../assets/checkbox-buttons.edit.json'
+import { CheckboxButtonComponent } from './checkbox-button.component'
+import checkboxButtonEditFormJson from '../../assets/checkbox-button.edit.json'
 
 function checkboxEditForm() {
   // Base form is created from
-  // console.log(JSON.stringify(Components.components.selectboxes.editForm()))
+  // console.log(JSON.stringify(Components.components.checkbox.editForm()))
   // Get the output from the console, format it with Notepad++ Tools/JSTool/JSFormat
   // and store it as a file in ../../assets.
   // Make changes to your Edit form
   // Before deployment, compact JSON file with Notepad++ Tools/JSToool/JSMin
-  // return Components.components.selectboxes.editForm()
+  // return Components.components.checkbox.editForm()
   return checkboxButtonEditFormJson
 }
 
 const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
-  type: 'checkboxbuttons', // custom type. Formio will identify the field with this type.
-  selector: 'checkbox-buttons', // custom selector. Angular Elements will create a custom html tag with this selector
-  title: 'Checkbox Buttons', // Title of the component
+  type: 'checkboxbutton', // custom type. Formio will identify the field with this type.
+  selector: 'checkbox-button', // custom selector. Angular Elements will create a custom html tag with this selector
+  title: 'Checkbox Button', // Title of the component
   group: 'basic', // Build Group
   icon: 'list-alt', // Icon
-  fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle', 'inline'],
-  editForm: checkboxEditForm, // Use editForm from checkbox buttons
+  fieldOptions: ['label', 'key', 'hidden', 'buttonStyle', 'hideLabel', 'icon'],
+  editForm: checkboxEditForm, // Use editForm from checkbox button
   //  template: 'input', // Optional: define a template for the element. Default: input
 //  changeEvent: 'valueChange', // Optional: define the changeEvent when the formio updates the value in the state. Default: 'valueChange',
 //  documentation: '', // Optional: define the documentation of the field
@@ -35,6 +35,6 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
 //  emptyValue: '' // Optional: the emptyValue of the field
 }
 
-export function registerCheckboxButtonsComponent(injector: Injector) {
-  registerCustomFormioComponent(COMPONENT_OPTIONS, CheckboxButtonsComponent, injector)
+export function registerCheckboxButtonComponent(injector: Injector) {
+  registerCustomFormioComponent(COMPONENT_OPTIONS, CheckboxButtonComponent, injector)
 }
