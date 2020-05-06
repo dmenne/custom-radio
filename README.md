@@ -56,26 +56,27 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
 ```
 * Use `import radioButtonEditFormJson from `../../assets/radio-buttons.edit.json'` in `radio-buttons.formio.ts` to get the parsed JSON
 
-  ```typescript
-  
-  function radioEditForm() {
-    // You can do some additional dynamic changes by modifying JSON here
-    return radioButtonEditFormJson
-  }
-  ```
+``` typescript
+
+function radioEditForm() {
+  // You can do some additional dynamic changes by modifying JSON here
+  return radioButtonEditFormJson
+}
 ```
 
 * Add function name without () as editForm in COMPONENT_OPTIONS.
 
-​``` typescript
-  const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
-    type: 'radiobuttons', 
-    selector: 'radio-buttons', 
-    title: 'Radio Buttons', 
-    group: 'basic', 
-    icon: 'fa fa-star', 
-    fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle'],
-    editForm: radioEditForm, // Use editForm from Radio buttons
+``` typescript
+
+const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
+  type: 'radiobuttons', 
+  selector: 'radio-buttons', 
+  title: 'Radio Buttons', 
+  group: 'basic', 
+  icon: 'fa fa-star', 
+  fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle'],
+    editForm: radioEditForm // Use editForm from Radio buttons
+
 ```
 
 * Add the field name `buttonStyle` and other fields you need to `fieldOptions`
@@ -98,7 +99,7 @@ class="btn-outline-{{buttonStyle}}
 
 ### formio is still buggy...
 
-`onInit` of the component is called between 50 and several hundered of times when a key in any editor is pressed. 
+`onInit` of the component is 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>)
 
 
 ```
