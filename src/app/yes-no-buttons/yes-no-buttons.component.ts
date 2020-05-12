@@ -45,7 +45,7 @@ export class YesNoButtonsComponent  implements FormioCustomComponent<string>, On
 
 
   ngOnInit() {
-    // console.log("onInit")
+    console.log('yes-no-buttons onInit')
   }
 
   showGroup() {

@@ -2,13 +2,14 @@
 import { NgModule, Injector } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
+import { AppConfig } from '../formio-config'
 
 // Components
 import { AppComponent } from './app.component'
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 // Formio
-import { FormioModule} from 'angular-formio'
+import { FormioModule, FormioAppConfig} from 'angular-formio'
 import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component'
 import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.formio';
 import { CheckboxButtonComponent } from './checkbox-button/checkbox-button.component'
@@ -32,6 +33,7 @@ import { registerYesNoButtonsComponent } from './yes-no-buttons/yes-no-buttons.f
     BrowserAnimationsModule,
   ],
   providers: [
+    {provide: FormioAppConfig, useValue: AppConfig}
   ],
   entryComponents: [
     RadioButtonsComponent,

@@ -45,7 +45,7 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
 
 
   ngOnInit() {
-    // console.log("onInit")
+    console.log('radio-buttons onInit')
   }
 
   showGroup() {
