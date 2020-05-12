@@ -1,6 +1,6 @@
 # Custom components for Formio
 
-[Formio](https://github.com/formio/formio) and its [Angular sibling](https://github.com/formio/angular-formio) are great frameworks to create user-editable web forms. The standard components cover the usual suspects, but when you need something slightly different, you find out that creating [custom components](https://github.com/formio/angular-formio/wiki/Custom-Components-with-Angular-Elements) is only half-heartedly supported. On most question you get a "paid support is available on request" answer. Custom components are considered  a "community feature", with [Bálint](https://github.com/merobal) as main contributor (March 2020). 
+[Formio](https://github.com/formio/formio) and its [Angular sibling](https://github.com/formio/angular-formio) are great frameworks to create user-editable web forms. The standard components cover the usual suspects, but when you need something slightly different, you find out that creating [custom components](https://github.com/formio/angular-formio/wiki/Custom-Components-with-Angular-Elements) is only half-heartedly supported. On most question you get a "paid support is available on request" answer. Custom components are considered  a "community feature", with [Bálint](https://github.com/merobal) as main contributor (March 2020).
 
 I had mixed luck when trying to compile the rating component, and using the concept in my own project. It has cost me weeks of debugging - main problems being version conflicts and occasional infinite loops.
 
@@ -12,11 +12,11 @@ The example generates inline and multiline radio buttons, yes/no buttons as a sp
 
 I need these because the usual radio buttons are much to small and difficult to hit on tablets for patients' self-assessment.
 
-### Custom Edit Form
+## Custom Edit Form
 
 I found a simple way to re-use and modify existing component editors for custom components.  In the example, I have removed the CSS text field and added a select box to display other styles such  of Bootstrap buttons.
 
-Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for the most important changes.  
+Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for the most important changes.
 
 ![Example Danger radio buttons](https://i.ibb.co/pzNfbG5/RedRadio.png)
 
@@ -32,28 +32,29 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
 
 ```json
   {
-  	"components": [{
-  			"type": "tabs",
-  			"key": "tabs",
-  			"components": [{
+    "components": [{
+        "type": "tabs",
+        "key": "tabs",
+        "components": [{
   ...
-  						"type": "select",
-  						"input": true,
-  						"key": "buttonStyle",
-  						"label": "Bootstrap button color style",
-  						"tooltip": "<a href='https://getbootstrap.com/docs/4.0/components/buttons/'>Button style</a>",
-  						"weight": 400,
-  						"defaultValue": "primary",
-  						"dataSrc": "values",
-  						"data": {
-  							"values": [{
-  									"label": "Primary",
-  									"value": "primary"
-  								}, {
-  									"label": "Secondary",
-  									"value": "secondary"
-  							...
+              "type": "select",
+              "input": true,
+              "key": "buttonStyle",
+              "label": "Bootstrap button color style",
+              "tooltip": "<a href='https://getbootstrap.com/docs/4.0/components/buttons/'>Button style</a>",
+              "weight": 400,
+              "defaultValue": "primary",
+              "dataSrc": "values",
+              "data": {
+                "values": [{
+                    "label": "Primary",
+                    "value": "primary"
+                  }, {
+                    "label": "Secondary",
+                    "value": "secondary"
+                ...
 ```
+
 * Use `import radioButtonEditFormJson from `../../assets/radio-buttons.edit.json'` in `radio-buttons.formio.ts` to get the parsed JSON
 
 ``` typescript
@@ -69,11 +70,11 @@ function radioEditForm() {
 ``` typescript
 
 const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
-  type: 'radiobuttons', 
-  selector: 'radio-buttons', 
-  title: 'Radio Buttons', 
-  group: 'basic', 
-  icon: 'fa fa-star', 
+  type: 'radiobuttons',
+  selector: 'radio-buttons',
+  title: 'Radio Buttons',
+  group: 'basic',
+  icon: 'fa fa-star',
   fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle'],
     editForm: radioEditForm // Use editForm from Radio buttons
 
@@ -86,22 +87,20 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
 "resolveJsonModule": true,
 "esModuleInterop": true,
 ```
+
 * Now you can use `buttonStyle`, by importing it into the component
+
 ```typescript
   @Input()
   buttonStyle: string
 ```
+
 * and in .html
 
 ```html
 class="btn-outline-{{buttonStyle}}
 ```
 
-### formio is still buggy...
+### angular-formio is still buggy
 
-`onInit` of the component is 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>)
-
-
-```
-
-```
+`onInit` of the component is 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>). Still present in `4.8.0-beta.5`
