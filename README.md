@@ -101,6 +101,6 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
 class="btn-outline-{{buttonStyle}}
 ```
 
-### angular-formio is still buggy
+### Custom Components in angular-formio still buggy
 
-`onInit` of the component is 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>). Still present in `4.8.0-beta.5`
+`onInit` of the component is called 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>). According to @travist, this is a bug in the [Customs Component implementation](<https://github.com/formio/angular-formio/tree/master/src/custom-component>) created by @merobal.
