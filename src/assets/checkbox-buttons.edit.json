@@ -103,6 +103,31 @@
 								}
 							}
 						}, {
+							"type": "select",
+							"input": true,
+							"label": "Options Label Position",
+							"key": "optionsLabelPosition",
+							"tooltip": "Position for the label for options for this field.",
+							"dataSrc": "values",
+							"weight": 32,
+							"defaultValue": "right",
+							"data": {
+								"values": [{
+										"label": "Top",
+										"value": "top"
+									}, {
+										"label": "Left",
+										"value": "left"
+									}, {
+										"label": "Right",
+										"value": "right"
+									}, {
+										"label": "Bottom",
+										"value": "bottom"
+									}
+								]
+							}
+						}, {
 							"weight": 200,
 							"type": "textarea",
 							"input": true,
@@ -129,45 +154,13 @@
 								"minLines": 3
 							}
 						}, {
-							"type": "select",
+							"weight": 500,
+							"type": "textfield",
 							"input": true,
-							"key": "buttonStyle",
-							"label": "Bootstrap button color style",
-							"tooltip": "<a href='https://getbootstrap.com/docs/4.0/components/buttons/'>Button style</a>",
-							"weight": 400,
-							"defaultValue": "primary",
-							"dataSrc": "values",
-							"data": {
-								"values": [{
-										"label": "Primary",
-										"value": "primary"
-									}, {
-										"label": "Secondary",
-										"value": "secondary"
-									}, {
-										"label": "Success",
-										"value": "success"
-									}, {
-										"label": "Danger",
-										"value": "danger"
-									}, {
-										"label": "Warning",
-										"value": "warning"
-									}, {
-										"label": "Info",
-										"value": "info"
-									}, {
-										"label": "Light",
-										"value": "light"
-									}, {
-										"label": "Dark",
-										"value": "dark"
-									}, {
-										"label": "Link",
-										"value": "link"
-									}
-								]
-							}
+							"key": "customClass",
+							"label": "Custom CSS Class",
+							"placeholder": "Custom CSS Class",
+							"tooltip": "Custom CSS class to add to this component."
 						}, {
 							"weight": 600,
 							"type": "textfield",
@@ -178,9 +171,8 @@
 							"tooltip": "Sets the tabindex attribute of this component to override the tab order of the form. See the <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex'>MDN documentation</a> on tabindex for more information."
 						}, {
 							"type": "checkbox",
-              "input": true,
-              "key": "inline",
-              "defaultValue": true,
+							"input": true,
+							"key": "inline",
 							"label": "Inline Layout",
 							"tooltip": "Displays the checkboxes/radios horizontally.",
 							"weight": 650
@@ -293,35 +285,6 @@
 									"data": {}
 								}
 							]
-						}, {
-							"type": "select",
-							"input": true,
-							"label": "Storage Type",
-							"key": "dataType",
-							"clearOnHide": true,
-							"tooltip": "The type to store the data. If you select something other than autotype, it will force it to that type.",
-							"weight": 12,
-							"template": "<span>{{ item.label }}</span>",
-							"dataSrc": "values",
-							"data": {
-								"values": [{
-										"label": "Autotype",
-										"value": "auto"
-									}, {
-										"label": "String",
-										"value": "string"
-									}, {
-										"label": "Number",
-										"value": "number"
-									}, {
-										"label": "Boolean",
-										"value": "boolean"
-									}, {
-										"label": "Object",
-										"value": "object"
-									}
-								]
-							}
 						}, {
 							"weight": 30,
 							"type": "radio",
@@ -544,6 +507,34 @@
 							"type": "textfield",
 							"tooltip": "Error message displayed if any error occurred.",
 							"input": true
+						}, {
+							"type": "number",
+							"input": true,
+							"key": "validate.minSelectedCount",
+							"label": "Minimum checked number",
+							"tooltip": "Minimum checkboxes required before form can be submitted.",
+							"weight": 250
+						}, {
+							"type": "number",
+							"input": true,
+							"key": "validate.maxSelectedCount",
+							"label": "Maximum checked number",
+							"tooltip": "Maximum checkboxes possible before form can be submitted.",
+							"weight": 250
+						}, {
+							"type": "textfield",
+							"input": true,
+							"key": "minSelectedCountMessage",
+							"label": "Minimum checked error message",
+							"tooltip": "Error message displayed if minimum number of items not checked.",
+							"weight": 250
+						}, {
+							"type": "textfield",
+							"input": true,
+							"key": "maxSelectedCountMessage",
+							"label": "Maximum checked error message",
+							"tooltip": "Error message displayed if maximum number of items checked.",
+							"weight": 250
 						}, {
 							"type": "panel",
 							"title": "Custom Validation",
@@ -1069,6 +1060,7 @@
 							"legend": "PDF Overlay",
 							"title": "PDF Overlay",
 							"key": "overlay",
+							"tooltip": "The settings inside apply only to the PDF forms.",
 							"weight": 2000,
 							"collapsible": true,
 							"collapsed": true,

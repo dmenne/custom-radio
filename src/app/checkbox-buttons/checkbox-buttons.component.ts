@@ -8,7 +8,7 @@ import { FormioCustomComponent } from 'angular-formio'
 
 })
 
-export class CheckboxBoxButtonsComponent  implements FormioCustomComponent<string>, OnInit {
+export class CheckboxButtonsComponent  implements FormioCustomComponent<string>, OnInit {
 
   @Input()
   value: string
