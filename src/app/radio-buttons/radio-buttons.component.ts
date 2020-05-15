@@ -43,7 +43,6 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
   @Input()
   inline: boolean ;
 
-
   ngOnInit() {
     console.log('radio-buttons onInit')
   }
@@ -56,7 +55,6 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
     return this.value && (val === this.value)
   }
 
-
   buttonClass(val: string) {
     const btn =
       'btn mr-1  mb-2  btn-outline-'  +
@@ -65,7 +63,6 @@ export class RadioButtonsComponent  implements FormioCustomComponent<string>, On
       (this.inline ? ' btn-group-rounded' : '')
     return btn
   }
-
 
   updateValue(payload: string) {
     console.log(payload)

@@ -1,0 +1,10 @@
+<div *ngIf="showGroup()" class="btn-group d-flex"
+  [ngClass]="{'flex-column':!inline}">
+  <label *ngFor = "let val of values" [ngClass]="buttonClass(val.value)"  [hidden]="!!hidden"
+  [attr.active]="isChecked(val.value)" >
+    <input type="checkbox" [disabled]="!!disabled" [hidden]="!!hidden" [name]="val.value"
+      [attr.checked]="isChecked(val.value) ? '' : null"
+      (click)="updateValue(val.value)">
+    {{val.label}}
+  </label>
+</div>

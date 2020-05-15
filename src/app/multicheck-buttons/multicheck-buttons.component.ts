@@ -2,13 +2,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormioCustomComponent } from 'angular-formio'
 
 @Component({
-  selector: 'app-radio-buttons',
-  templateUrl: './checkbox-buttons.component.html',
-  styleUrls: ['./checkbox-buttons.component.scss']
+  selector: 'app-multicheck-buttons',
+  templateUrl: './multicheck-buttons.component.html',
+  styleUrls: ['./multicheck-buttons.component.scss']
 
 })
 
-export class CheckboxButtonsComponent  implements FormioCustomComponent<string>, OnInit {
+export class MulticheckButtonsComponent  implements FormioCustomComponent<string>, OnInit {
 
   @Input()
   value: string
@@ -45,32 +45,30 @@ export class CheckboxButtonsComponent  implements FormioCustomComponent<string>,
 
 
   ngOnInit() {
-    console.log('radio-buttons onInit')
+    console.log('multi checkboxes onInit')
   }
 
   showGroup() {
     return  !this.hidden && this.values && ((this.values[0].value) !== '');
   }
 
-  isActive(val: string) {
+  isChecked(val: string) {
     return this.value && (val === this.value)
   }
-
 
   buttonClass(val: string) {
     const btn =
       'btn mr-1  mb-2  btn-outline-'  +
       this.buttonStyle + ' ' +
-      (this.isActive(val) ? 'active' : '') +
+      (this.isChecked(val) ? 'active' : '') +
       (this.inline ? ' btn-group-rounded' : '')
     return btn
-  }
-
+}
 
   updateValue(payload: string) {
     console.log(payload)
     this.value = payload;
-    this.valueChange.emit(payload);
+    // this.valueChange.emit(payload);
   }
 
 }
