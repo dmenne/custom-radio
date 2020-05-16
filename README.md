@@ -101,6 +101,14 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
 class="btn-outline-{{buttonStyle}}
 ```
 
+### A Custom Components Form
+
+When you want to present a recommended subselection of components for users, you can create a custom form. See  `app.component.ts` and `app.component.html` for quick-and-dirty solution.
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/19k5715/Custom-Radio.png" alt="Custom Component" border="0"></a>
+
+Thanks to [@travist](https://github.com/formio/angular-formio/issues/544).
+
 ### Custom Components in angular-formio still buggy
 
-`onInit` of the component is called 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>). According to @travist, this is a bug in the [Customs Component implementation](<https://github.com/formio/angular-formio/tree/master/src/custom-component>) created by @merobal.
+`onInit` of the component is called 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>). 
