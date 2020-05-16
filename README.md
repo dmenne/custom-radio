@@ -88,7 +88,7 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
 "esModuleInterop": true,
 ```
 
-* Now you can use `buttonStyle`, by importing it into the component
+* Now you can use `buttonStyle` by importing it into the component
 
 ```typescript
   @Input()
@@ -111,4 +111,4 @@ Thanks to [@travist](https://github.com/formio/angular-formio/issues/544).
 
 ### Custom Components in angular-formio still buggy
 
-`onInit` of the component is called 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>). 
+`onInit` of the component is called 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>).

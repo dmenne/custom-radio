@@ -23,7 +23,7 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   title: 'Multi Checkboxes', // Title of the component
   group: 'basic', // Build Group
   icon: 'check-circle', // Icon
-  fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle', 'inline'],
+  fieldOptions: ['label', 'values', 'key', 'hidden', 'buttonStyle', 'inline', 'icon', 'multiple'],
   editForm: multicheckButtonsEditForm, // Use editForm from Radio buttons
   //  template: 'input', // Optional: define a template for the element. Default: input
 //  changeEvent: 'valueChange', // Optional: define the changeEvent when the formio updates the value in the state. Default: 'valueChange',
@@ -31,7 +31,7 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
 //  weight: 0, // Optional: define the weight in the builder group
 //  schema: {}, // Optional: define extra default schema for the field
 //  extraValidators: [], // Optional: define extra validators  for the field
-//  emptyValue: '' // Optional: the emptyValue of the field
+emptyValue: {} // Optional: the emptyValue of the field
 }
 
 export function registerMulticheckButtonsComponent(injector: Injector) {

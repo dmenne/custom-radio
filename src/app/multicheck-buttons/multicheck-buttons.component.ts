@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output, ɵisListLikeIterable } from '@angular/core'
 import { FormioCustomComponent } from 'angular-formio'
+import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes'
 
 @Component({
   selector: 'app-multicheck-buttons',
@@ -8,10 +9,11 @@ import { FormioCustomComponent } from 'angular-formio'
 
 })
 
-export class MulticheckButtonsComponent  implements FormioCustomComponent<string>, OnInit {
+export class MulticheckButtonsComponent  implements
+  FormioCustomComponent<Record<string, boolean>>, OnInit {
 
   @Input()
-  value: string
+  value: Record<string, boolean>
 
   @Input()
   type: string
@@ -25,8 +27,11 @@ export class MulticheckButtonsComponent  implements FormioCustomComponent<string
   @Input()
   label: string
 
+  @Input()
+  multiple: boolean;
+
   @Output()
-  valueChange = new EventEmitter<string>()
+  valueChange = new EventEmitter<Record<string, boolean>>()
 
   @Input()
   values: {}
@@ -43,17 +48,21 @@ export class MulticheckButtonsComponent  implements FormioCustomComponent<string
   @Input()
   inline: boolean ;
 
+  @Input()
+  icon: string
+
 
   ngOnInit() {
     console.log('multi checkboxes onInit')
   }
 
   showGroup() {
-    return  !this.hidden && this.values && ((this.values[0].value) !== '');
+    return true
+//    return  !this.hidden && this.values && ((this.values[0].value) !== '');
   }
 
   isChecked(val: string) {
-    return this.value && (val === this.value)
+    return this.value && (val === 'sd')
   }
 
   buttonClass(val: string) {
@@ -66,9 +75,31 @@ export class MulticheckButtonsComponent  implements FormioCustomComponent<string
 }
 
   updateValue(payload: string) {
-    console.log(payload)
-    this.value = payload;
-    // this.valueChange.emit(payload);
+    this.value[payload] = !this.value[payload]
+//    console.log(JSON.stringify(this.value))
+    this.valueChange.emit(this.value) ;
   }
 
 }
+
+/*
+{
+  "data": {
+      "mySelect": {
+          "first": true,
+          "second": false
+      },
+      "submit": false
+  },
+  "metadata": {}
+}
+
+
+{
+    "data": {
+        "submit": false,
+        "myNumber": 3
+    },
+    "metadata": {}
+}
+*/

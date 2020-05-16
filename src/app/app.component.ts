@@ -19,7 +19,7 @@ export class AppComponent {
         weight: 0,
         components: {
           textfield: true,
-          textarea: true,
+          textarea: true
         },
       },
       custom: {

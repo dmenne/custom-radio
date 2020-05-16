@@ -2,9 +2,11 @@
   [ngClass]="{'flex-column':!inline}">
   <label *ngFor = "let val of values" [ngClass]="buttonClass(val.value)"  [hidden]="!!hidden"
   [attr.active]="isChecked(val.value)" >
-    <input type="checkbox" [disabled]="!!disabled" [hidden]="!!hidden" [name]="val.value"
-      [attr.checked]="isChecked(val.value) ? '' : null"
-      (click)="updateValue(val.value)">
-    {{val.label}}
+  <input type="checkbox" [disabled]="!!disabled" class="visually-hidden" autocomplete="off"
+  [attr.checked]= "value" (click)="updateValue(val.value)"  >
+  <span class="fa fa-2x mr-1 vertical-icon"  [ngClass]="(value)?'fa-check-circle':'fa-circle-o'"></span>
+  <span *ngIf="icon" class="fa fa-2x mr-1 vertical-icon fa-{{icon}}"></span>
+  <span>{{val.label}}</span>
+
   </label>
 </div>
