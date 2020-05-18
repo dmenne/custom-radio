@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output  } from '@angular/core'
 import { FormioCustomComponent } from 'angular-formio'
+import { DataValue } from '../custom-aux'
 
 @Component({
   selector: 'app-multicheck-buttons',
   templateUrl: './multicheck-buttons.component.html',
-  styleUrls: ['./multicheck-buttons.component.scss']
+  styleUrls: ['../custom-component.scss']
 
 })
 
@@ -33,7 +34,7 @@ export class MulticheckButtonsComponent  implements
   valueChange = new EventEmitter<Record<string, boolean>>()
 
   @Input()
-  values: {}
+  values: [DataValue]
 
   @Input()
   disabled: boolean
