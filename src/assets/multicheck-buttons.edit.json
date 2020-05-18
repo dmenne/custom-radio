@@ -313,17 +313,13 @@
 										"required": true
 									}
 								}, {
-									"type": "select",
-									"input": true,
-									"weight": 180,
-									"label": "Shortcut",
-									"key": "shortcut",
-									"tooltip": "The shortcut key for this option.",
-									"dataSrc": "custom",
-									"valueProperty": "value",
-									"template": "{{ item.label }}",
-									"data": {}
-								}
+                  "type": "textfield",
+                  "input": true,
+                  "key": "icon",
+                  "label": "Icon",
+                  "tooltip": "<a href='https://fontawesome.com/icons?d=gallery&m=free'>Font-awesome icon</a>, without leading 'fa-' Try 'car'. ",
+                  "weight": 410
+                }
 							]
 						}, {
 							"weight": 30,

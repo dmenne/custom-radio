@@ -4,7 +4,7 @@ import { FormioCustomComponent } from 'angular-formio'
 @Component({
   selector: 'app-radio-buttons',
   templateUrl: './radio-buttons.component.html',
-  styleUrls: ['./radio-buttons.component.scss']
+  styleUrls: ['../custom-component.scss']
 
 })
 

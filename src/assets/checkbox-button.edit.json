@@ -137,23 +137,12 @@
 									}
 								]
 							}
-						},{
-							"type": "select",
-							"input": true,
-							"weight": 350,
-							"label": "Shortcut",
-							"key": "shortcut",
-							"tooltip": "Shortcut for this component.",
-							"dataSrc": "custom",
-							"valueProperty": "value",
-							"template": "{{ item.label }}",
-							"data": {}
 						}, {
 							"type": "textfield",
 							"input": true,
 							"key": "icon",
 							"label": "The font-awesome icon to display in the field, try 'car'",
-							"tooltip": "The font-awesome icon; see https://fontawesome.com/icons?d=gallery&m=free for choices",
+							"tooltip": "<a href='https://fontawesome.com/icons?d=gallery&m=free'>Font-awesome icon</a> ",
 							"weight": 410
 						}, {
 							"type": "textfield",

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output  } from '@angular/core'
 import { FormioCustomComponent } from 'angular-formio'
-import { DataValue } from '../custom-aux'
+import { DataValue } from '../custom-component'
 
 @Component({
   selector: 'app-multicheck-buttons',
@@ -27,9 +27,6 @@ export class MulticheckButtonsComponent  implements
   @Input()
   label: string
 
-  @Input()
-  multiple: boolean;
-
   @Output()
   valueChange = new EventEmitter<Record<string, boolean>>()
 
@@ -48,24 +45,31 @@ export class MulticheckButtonsComponent  implements
   @Input()
   inline: boolean ;
 
-  @Input()
-  icon: string
-
-
   ngOnInit() {
     console.log('multi checkboxes onInit')
   }
 
+
   showGroup() {
     const ret =  this.values &&
      Object.keys(this.values).length !== 0 &&
-     this.values[0].label !==  '' // This line is required because of a bug
-    console.log(JSON.stringify(this.values))
+     this.values[0].label !==  ''
+    // Last line is required because of a bug
+    // Check again when multi-call of ngOnInit has been resolved
     return ret
   }
 
   isChecked(val: string) {
+    // Explicit === true required
     return this.value[val] === true
+  }
+
+  //  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+  icon(val: string) {
+    const ic = this.values.find(({ value }) => value === val).icon
+    const ret = ic ?  ic :  this.isChecked(val) ? 'check-circle' : 'circle-o'
+    return ret
   }
 
   buttonClass(val: string) {
@@ -79,10 +83,8 @@ export class MulticheckButtonsComponent  implements
 
   updateValue(payload: string) {
     this.value[payload] = !this.value[payload]
-//    console.log(JSON.stringify(this.value))
     this.valueChange.emit(this.value) ;
   }
-
 }
 
 /*
@@ -95,14 +97,5 @@ export class MulticheckButtonsComponent  implements
       "submit": false
   },
   "metadata": {}
-}
-
-
-{
-    "data": {
-        "submit": false,
-        "myNumber": 3
-    },
-    "metadata": {}
 }
 */

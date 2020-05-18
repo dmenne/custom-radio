@@ -4,7 +4,7 @@ import { FormioCustomComponent } from 'angular-formio'
 @Component({
   selector: 'app-yes-no-buttons',
   templateUrl: './yes-no-buttons.component.html',
-  styleUrls: ['./yes-no-buttons.component.scss']
+  styleUrls: ['../custom-component.scss']
 
 })
 

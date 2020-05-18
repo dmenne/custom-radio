@@ -4,7 +4,7 @@ import { FormioCustomComponent } from 'angular-formio'
 @Component({
   selector: 'app-checkbox-button',
   templateUrl: './checkbox-button.component.html',
-  styleUrls: ['./checkbox-button.component.scss']
+  styleUrls: ['../custom-component.scss']
 
 })
 
@@ -46,7 +46,6 @@ export class CheckboxButtonComponent  implements FormioCustomComponent<boolean>,
   ngOnInit() {
     console.log('checkbox-button onInit')
     // Bug in Formio: 6 times on every keypress when editor is open
-    this.hideLabel = true  // Does not work; I want to set hideLabel to true by default
   }
 
   buttonClass() {
