@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output, ɵisListLikeIterable } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output  } from '@angular/core'
 import { FormioCustomComponent } from 'angular-formio'
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes'
 
 @Component({
   selector: 'app-multicheck-buttons',
@@ -57,12 +56,15 @@ export class MulticheckButtonsComponent  implements
   }
 
   showGroup() {
-    return true
-//    return  !this.hidden && this.values && ((this.values[0].value) !== '');
+    const ret =  this.values &&
+     Object.keys(this.values).length !== 0 &&
+     this.values[0].label !==  '' // This line is required because of a bug
+    console.log(JSON.stringify(this.values))
+    return ret
   }
 
   isChecked(val: string) {
-    return this.value && (val === 'sd')
+    return this.value[val] === true
   }
 
   buttonClass(val: string) {

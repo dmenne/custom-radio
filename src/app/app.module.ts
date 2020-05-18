@@ -11,18 +11,18 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 // Formio
 import { FormioModule, FormioAppConfig, Components} from 'angular-formio'
 
-import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component'
-import { registerRadioButtonsComponent } from './radio-buttons/radio-buttons.formio';
+import { RadioButtonsComponent } from './custom-components/radio-buttons/radio-buttons.component'
+import { registerRadioButtonsComponent } from './custom-components/radio-buttons/radio-buttons.formio';
 
-import { CheckboxButtonComponent } from './checkbox-button/checkbox-button.component'
-import { registerCheckboxButtonComponent } from './checkbox-button/checkbox-button.formio';
+import { CheckboxButtonComponent } from './custom-components/checkbox-button/checkbox-button.component'
+import { registerCheckboxButtonComponent } from './custom-components/checkbox-button/checkbox-button.formio';
 
-import { MulticheckButtonsComponent } from './multicheck-buttons/multicheck-buttons.component'
-import { registerMulticheckButtonsComponent } from './multicheck-buttons/multicheck-buttons.formio';
+import { MulticheckButtonsComponent } from './custom-components/multicheck-buttons/multicheck-buttons.component'
+import { registerMulticheckButtonsComponent } from './custom-components/multicheck-buttons/multicheck-buttons.formio';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { YesNoButtonsComponent } from './yes-no-buttons/yes-no-buttons.component';
-import { registerYesNoButtonsComponent } from './yes-no-buttons/yes-no-buttons.formio';
+import { YesNoButtonsComponent } from './custom-components/yes-no-buttons/yes-no-buttons.component';
+import { registerYesNoButtonsComponent } from './custom-components/yes-no-buttons/yes-no-buttons.formio';
 
 @NgModule({
   declarations: [

@@ -5,7 +5,7 @@ import {
   Components
 } from 'angular-formio'
 import { YesNoButtonsComponent } from './yes-no-buttons.component'
-import yesnoButtonEditFormJson from '../../assets/yes-no-buttons.edit.json'
+import yesnoButtonEditFormJson from '../../../assets/yes-no-buttons.edit.json'
 
 function radioEditForm() {
   // Base form is created from

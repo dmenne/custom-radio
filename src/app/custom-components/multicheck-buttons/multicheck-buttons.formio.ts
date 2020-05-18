@@ -5,7 +5,7 @@ import {
   Components
 } from 'angular-formio'
 import { MulticheckButtonsComponent } from './multicheck-buttons.component'
-import multicheckButtonsEditFormJson from '../../assets/multicheck-buttons.edit.json'
+import multicheckButtonsEditFormJson from '../../../assets/multicheck-buttons.edit.json'
 
 function multicheckButtonsEditForm() {
   // Base form is created from
