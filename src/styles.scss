@@ -6,9 +6,6 @@ $success: #2793e8;
 @import "~bootswatch/dist/cosmo/_variables.scss";
 @import "~bootstrap/scss/bootstrap.scss";
 
-$fa-font-path: '../node_modules/font-awesome/fonts';
-@import '~font-awesome/scss/font-awesome';
-
 .alert-info {
   background-color: #eeeeee;
   border-color: #aaaaaa;
@@ -16,4 +13,18 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 
 .builder-component{
   background-color: #f8faf8;
+}
+
+// Required to use version 5. fortawesome
+
+.fa-remove:before {
+  content: "\f00d"
+  }
+
+.fa-times-circle-o:before {
+    content: "\f057"
+}
+
+.fa-arrows:before {
+  content: "\f0b2"
 }

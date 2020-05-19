@@ -1,14 +1,14 @@
 # Custom components for Formio
 
-[Formio](https://github.com/formio/formio) and its [Angular sibling](https://github.com/formio/angular-formio) are great frameworks to create user-editable web forms. The standard components cover the usual suspects, but when you need something slightly different, you find out that creating [custom components](https://github.com/formio/angular-formio/wiki/Custom-Components-with-Angular-Elements) is only half-heartedly supported. On most question you get a "paid support is available on request" answer. Custom components are considered  a "community feature", with [Bálint](https://github.com/merobal) as main contributor (March 2020).
+[Formio](https://github.com/formio/formio) and its [Angular sibling](https://github.com/formio/angular-formio) are great frameworks to create user-editable web forms. The standard components cover the usual suspects, but when you need something slightly different, you find out that creating [custom components](https://github.com/formio/angular-formio/wiki/Custom-Components-with-Angular-Elements) is half-heartedly supported. Custom components are considered  a "community feature", with [Bálint](https://github.com/merobal) as main contributor (March 2020).
 
-I had mixed luck when trying to compile the rating component, and using the concept in my own project. It has cost me weeks of debugging - main problems being version conflicts and occasional infinite loops.
+I had mixed luck when trying to compile the rating component. It has cost me weeks of debugging - main problems being version conflicts and occasional infinite loops which were resolved later.
 
 I gave up and started from scratch, with only the latest versions available: `"angular-formio": "4.6.10"` and `Angular 9.0.7`. Within one day, everthing worked - well, at least for me, your mileage may vary and you assume that ongoing formio development will introduces new issues.
 
-The example generates inline and multiline radio buttons, yes/no buttons as a special case and large checkbox-like buttons.
+The example generates inline and multiline radio buttons, yes/no buttons as a special case, large checkbox-like buttons and a multi-checkbox component.
 
-<a href="https://ibb.co/s9jCDhT"><img src="https://i.ibb.co/v41hrbN/cust.png" alt="cust" border="0"></a>
+![Custom Component](https://i.ibb.co/v41hrbN/cust.png)
 
 I need these because the usual radio buttons are much to small and difficult to hit on tablets for patients' self-assessment.
 
@@ -55,7 +55,7 @@ Check files `radio-buttons-formio.ts` and `assets/radio-buttons.edit.json` for t
                 ...
 ```
 
-* Use `import radioButtonEditFormJson from `../../assets/radio-buttons.edit.json'` in `radio-buttons.formio.ts` to get the parsed JSON
+* Use `import radioButtonEditFormJson from '../../assets/radio-buttons.edit.json'` in `radio-buttons.formio.ts` to get the parsed JSON
 
 ``` typescript
 
@@ -103,11 +103,15 @@ class="btn-outline-{{buttonStyle}}
 
 ### A Custom Components Form
 
-When you want to present a recommended subselection of components for users, you can create a custom form. See  `app.component.ts` and `app.component.html` for quick-and-dirty solution.
+When you want to present a recommended subselection of components for users, you can create a custom form. See  [app.component.ts](https://github.com/dmenne/custom-radio/blob/master/src/app/app.component.ts) and [app.component.html](https://github.com/dmenne/custom-radio/blob/master/src/app/app.component.html) for quick-and-dirty solution.
 
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/19k5715/Custom-Radio.png" alt="Custom Component" border="0"></a>
+![Custom Components Form](https://i.ibb.co/19k5715/Custom-Radio.png)
 
 Thanks to [@travist](https://github.com/formio/angular-formio/issues/544).
+
+### Fortawesome
+
+Using [fortawesome](https://www.npmjs.com/package/@fortawesome/angular-fontawesome) for access to  version 5.x fontawesome now. [Workaround](https://github.com/formio/angular-formio/issues/547) for missing icons.
 
 ### Custom Components in angular-formio still buggy
 

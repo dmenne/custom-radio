@@ -212,7 +212,8 @@
 						}, {
 							"type": "checkbox",
 							"input": true,
-							"key": "inline",
+              "key": "inline",
+              "default": true,
 							"label": "Inline Layout",
 							"tooltip": "Displays the checkboxes/radios horizontally.",
 							"weight": 650

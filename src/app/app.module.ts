@@ -37,7 +37,7 @@ import { registerYesNoButtonsComponent } from './custom-components/yes-no-button
     BrowserModule,
     CommonModule,
     ButtonsModule.forRoot(),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: FormioAppConfig, useValue: AppConfig}

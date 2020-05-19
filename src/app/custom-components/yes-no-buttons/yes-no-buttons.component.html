@@ -1,4 +1,4 @@
-<div *ngIf="showGroup()" class="btn-group btn-group-toggle d-flex"
+<div *ngIf="showGroup()" class="btn-group btn-group-toggle d-flex btn-formio-yesno"
   [ngClass]="{'flex-column':!inline}">
   <label *ngFor = "let val of values" [ngClass]="buttonClass(val.value)"  [hidden]="!!hidden"
   [attr.active]="isActive(val.value)" >
