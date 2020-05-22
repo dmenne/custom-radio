@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (email, password) => { ''})
+
+/*
+import SelectorPlayground from '../selector-playground/selector-playground'
+
+SelectorPlayground.defaults({
+  selectorPriority: ['id', 'class', 'attributes']
+})
+*/

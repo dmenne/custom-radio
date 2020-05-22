@@ -28,7 +28,7 @@ export class AppComponent {
         weight: 10,
         components: {
           multicheckbuttons: true,
-          checkbox: true,
+          checkboxbutton: true,
           radiobuttons: true,
           yesnobuttons: true
         },
