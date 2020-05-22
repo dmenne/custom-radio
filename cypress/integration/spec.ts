@@ -72,7 +72,7 @@ describe('When Formio Radio Buttons starting page is loaded', () => {
 
   it('Can create Multi-Checkbox with and without values', () => {
     checkSetLabel('multicheckbuttons')
-    cy.get('[data-component-key="values.value"]')
+    cy.get('[data-component-key="values[0].value"]')
       .contains('Value is required')
     cy.get('[name="data[inline]"]').click()
     cy.get(':nth-child(2) > .nav-link')
