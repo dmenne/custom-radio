@@ -109,10 +109,18 @@ When you want to present a recommended subselection of components for users, you
 
 Thanks to [@travist](https://github.com/formio/angular-formio/issues/544).
 
-### Fortawesome
+### Cypress E2E Test
 
-Using [fortawesome](https://www.npmjs.com/package/@fortawesome/angular-fontawesome) for access to  version 5.x fontawesome now. [Workaround](https://github.com/formio/angular-formio/issues/547) for missing icons.
+Some Cypress tests have been added. Use `ng e2e` to start;  have some coffee ready, the first start may need more than 1 minute.
+
+### Fortawesomes
+
+Using [fortawesome](https://www.npmjs.com/package/@fortawesome/angular-fontawesome) for access to  version 5.x fontawesome now. [Workaround](https://github.com/formio/angular-formio/issues/547) for missing icons. Future versions of formio will support version 5.x icons.
 
 ### Custom Components in angular-formio still buggy
 
 `onInit` of the component is called 6 times when a key in any editor is pressed. Reported [as #507](<https://github.com/formio/angular-formio/issues/507>).
+
+### Infinite loops
+
+Here is a [reproducable case](https://github.com/dmenne/custom-radio/blob/a4a2bbb331e55f2aa2b3023a5f3fb983e3078f20/cypress/integration/spec.ts#L83-L87) that generates an infinite loop in the browser:
