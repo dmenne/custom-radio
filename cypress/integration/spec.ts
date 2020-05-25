@@ -1,8 +1,9 @@
 function setComponentLabel(dataType: string, txt: string) {
   cy.get('[data-type="' + dataType + '"]')
     .trigger('mousedown', {which: 1})
+    // Ugly, must use mouse position. drag-drop on element does not work
     .trigger('mousemove', {which: 1, clientX: 400, clientY: 60})
-    .trigger('mouseup', {force: true})
+    .trigger('mouseup', {force: false})
   cy.get('[placeholder="Field Label"]')
     .clear()
     .type(txt)
@@ -70,6 +71,7 @@ describe('When Formio Radio Buttons starting page is loaded', () => {
     checkSetLabel('yesnobuttons', 'checkboxbutton')
   })
 
+  // This test creates an infinite loop
   it('Can create Multi-Checkbox with and without values', () => {
     checkSetLabel('multicheckbuttons')
     cy.get('[data-component-key="values[0].value"]')
@@ -78,12 +80,16 @@ describe('When Formio Radio Buttons starting page is loaded', () => {
     cy.get(':nth-child(2) > .nav-link')
       .click()
     setBoxValue(0, 'first', 'car')
+    // The next line generates the infinite loop
+    // Remove it (and the test in the last line),
+    // and the infinite loop is gone
     setBoxValue(1, 'second', 'arrows')
     cy.get('.btn-success').click()
     cy.get('.btn-group > :nth-child(1) > .fa')
       .should('have.class', 'fa-car')
     cy.get('.btn-group > :nth-child(2) > .fa')
       .should('have.class', 'fa-arrows')
+
   })
 
 
