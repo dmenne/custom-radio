@@ -72,7 +72,7 @@ describe('When Formio Radio Buttons starting page is loaded', () => {
   })
 
   // This test creates an infinite loop
-  it('Can create Multi-Checkbox with and without values', () => {
+  it.only('Can create Multi-Checkbox with and without values', () => {
     checkSetLabel('multicheckbuttons')
     cy.get('[data-component-key="values[0].value"]')
       .contains('Value is required')
